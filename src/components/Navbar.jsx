@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { usePathname, useRouter } from 'next/navigation';
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const flags = {
-  en: '🇬🇧',
-  de: '🇩🇪',
+  en: "🇬🇧",
+  de: "🇩🇪",
 };
 
 export default function Navbar() {
@@ -12,7 +13,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // Determine current locale from URL prefix
-  const currentLocale = pathname.startsWith('/de') ? 'de' : 'en';
+  const currentLocale = pathname.startsWith("/de") ? "de" : "en";
 
   // Switch locale without losing current hash or query (simple replace)
   const switchLocale = (newLocale) => {
@@ -22,44 +23,77 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-16">
         {/* Logo */}
-        <a href={`/${currentLocale}`} className="text-2xl font-semibold text-gray-800">
-          M. Ammar Khan
+        <a
+          href={`/${currentLocale}`}
+          className="text-2xl font-semibold text-gray-800"
+        >
+          {/* M. Ammar Khan */}
         </a>
 
         {/* Menu */}
         <div className="flex space-x-8">
-          <a href={`/${currentLocale}#about`} className="text-gray-700 hover:text-gray-900">
+          <a
+            href={`/${currentLocale}#about`}
+            className="text-gray-700 hover:text-gray-900"
+          >
             About
           </a>
-          <a href={`/${currentLocale}#projects`} className="text-gray-700 hover:text-gray-900">
+          <a
+            href={`/${currentLocale}#projects`}
+            className="text-gray-700 hover:text-gray-900"
+          >
             Projects
           </a>
-          <a href={`/${currentLocale}#contact`} className="text-gray-700 hover:text-gray-900">
+          <a
+            href={`/${currentLocale}#contact`}
+            className="text-gray-700 hover:text-gray-900"
+          >
             Contact
           </a>
         </div>
 
         {/* Language Switcher with flags */}
         <div className="flex space-x-2 border border-gray-300 rounded-md overflow-hidden">
-          {['en', 'de'].map((locale) => (
+          <Link href="/">
             <button
-              key={locale}
-              onClick={() => switchLocale(locale)}
+              key={"en"}
               className={`
                 px-3 py-2 flex items-center gap-1 text-sm focus:outline-none
-                ${currentLocale === locale ? 'bg-gray-200 cursor-default' : 'hover:bg-gray-100'}
+                ${
+                  currentLocale === "en"
+                    ? "bg-gray-200 cursor-default"
+                    : "hover:bg-gray-100 cursor-pointer"
+                }
               `}
-              disabled={currentLocale === locale}
-              aria-label={`Switch to ${locale.toUpperCase()}`}
-              title={locale.toUpperCase()}
+              disabled={currentLocale === "en"}
+              aria-label={`Switch to ${"en".toUpperCase()}`}
+              title={"en".toUpperCase()}
             >
-              <span style={{ fontSize: '1.25rem' }}>{flags[locale]}</span>
-              {locale.toUpperCase()}
+              <span style={{ fontSize: "1.25rem" }}>{flags["en"]}</span>
+              {"en".toUpperCase()}
             </button>
-          ))}
+          </Link>
+          <Link href="/de">
+            <button
+              key={"de"}
+              className={`
+                px-3 py-2 flex items-center gap-1 text-sm focus:outline-none
+                ${
+                  currentLocale === "de"
+                    ? "bg-gray-200 cursor-default"
+                    : "hover:bg-gray-100 cursor-pointer"
+                }
+              `}
+              disabled={currentLocale === "de"}
+              aria-label={`Switch to ${"de".toUpperCase()}`}
+              title={"de".toUpperCase()}
+            >
+              <span style={{ fontSize: "1.25rem" }}>{flags["de"]}</span>
+              {"de".toUpperCase()}
+            </button>
+          </Link>
         </div>
       </div>
     </nav>
