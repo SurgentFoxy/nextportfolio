@@ -1,0 +1,11 @@
+Model Information:
+* title:	fox
+* source:	https://sketchfab.com/3d-models/fox-5654771775134c88a4ceb07a99d43b92
+* author:	silvercrow101 (https://sketchfab.com/silvercrow101)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "fox" (https://sketchfab.com/3d-models/fox-5654771775134c88a4ceb07a99d43b92) by silvercrow101 (https://sketchfab.com/silvercrow101) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
