@@ -7,7 +7,7 @@ export default function Home() {
     <div>    
       {/* <Navbar /> */}
       {/* <HeroSection /> */}
-      <div className="h-screen">
+      <div className="h-screen bg-amber-700">
         <FoxScene />
       </div>
     </div>
